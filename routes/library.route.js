@@ -3,6 +3,8 @@ const { Library, library } = require('../model/library.model')
 
 const router = express.Router();
 
+
+// add book
 router.post('/', async (req, res) => {
     try {
         console.log('req >> ', req.body)
@@ -11,6 +13,15 @@ router.post('/', async (req, res) => {
         console.log('book >> ', book)
         library.push(book);
         res.status(201).json({ msg: 'Book added', library })
+    } catch (err) {
+        res.status(500).json({ msg: 'Something went wrong' })
+    }
+})
+
+// fetch all books
+router.get('/',async(req,res)=>{
+     try {
+        res.status(201).json({ library })
     } catch (err) {
         res.status(500).json({ msg: 'Something went wrong' })
     }

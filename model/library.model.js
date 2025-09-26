@@ -1,5 +1,6 @@
 const {v4:uuid} = require('uuid');
 
+// schema of book
 class Library {
     constructor(title,author,genre,status="To Read"){
         // id=uuid();
@@ -10,6 +11,7 @@ class Library {
     }
 }
 
+// store in memory
 const library = [];
 
 module.exports = {Library,library}
